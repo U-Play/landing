@@ -7,6 +7,7 @@ gem 'rails', '3.2.11'
 
 gem 'sqlite3'
 gem 'mixpanel'
+gem 'gibbon'
 gem 'thin'
 
 group :development do
@@ -25,6 +26,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  # Add Foundation Here
+  gem 'zurb-foundation', '~> 4.0.0'
+  gem 'compass-rails'
 end
 
 gem 'jquery-rails'

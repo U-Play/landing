@@ -1,6 +1,65 @@
-<h1>Landing Page</h1>
+<div id="in-touch" class="wrapper">
+  <section class="row">
+    <div class="small-12 columns">
+      <div class="uplay-logo"></div>
+    </div>
+  </section>
+  <section class="slogan row">
+    <header class="small-4 columns">
+      <h1>TAKE YOUR COMPETITION FURTHER</h1>
+      <h5>INTERNATIONAL UNIVERSITY SPORTS PLATFORM</h5>
+    </header>
+    <div class="laptop small-8 columns">
+    </div>
+  </section>
+</div>
 
-<form method="post" action="<%= landing_register_url %>">
-  <input type="email" name="useremail" />
-  <input type="submit" value="Get in touch" />
-</form>
+<div id="athletes" class="wrapper">
+  <div class="row">
+    <section class="small-6 columns">
+      <header>
+        <div class="athletes-icon"></div>
+        <h3>ATHLETES</h3>
+        <p>Exhibit your profile</p>
+        <p>Share your achievements</p>
+        <p>Connect with other athletes</p>
+      </header>
+    </section>
+    <section class="small-6 columns">
+      <header>
+        <div class="organizers-icon"></div>
+        <h3>ORGANIZERS</h3>
+        <p>Engage the athletes</p>
+        <p>Share the hightlights</p>
+        <p>Manage your tournaments</p>
+      </header>
+    </section>
+  </div>
+</div>
+
+<div id="second-sign" class="wrapper">
+  <section class="row">
+    <section class="small-6 columns">
+      <div>SIGN UP TO GET MORE INFO</div>
+    </section>
+    <section class="small-6 columns">
+      <form method="post" action="<%= landing_register_url %>">
+        <section class="row collapse">
+          <section class="small-9 columns">
+            <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
+          </section>
+          <section class="small-3 columns">
+            <input class="prefix" type="submit" value="SEND" />
+          </section>
+        </section>
+      </form>
+    </section>
+  </section>
+</div>
+
+<footer class="wrapper">
+  <section class="row">
+    @2013, All rights reserved UPlayPro, Made in Braga
+  </section>
+</footer>
+

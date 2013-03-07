@@ -1,0 +1,92 @@
+/*
+ *= require foundation_and_overrides
+ *= require_self
+ *= require_tree .
+ */
+
+@import "compass"
+@import "foundation"
+@import "partials/colors"
+
+@mixin title-font
+  font-family: 'Oswald', sans-serif
+
+
+html, body
+  padding-top: 4px
+  background-color: $GreenB
+
+.wrapper
+  width: 100%
+
+
+#in-touch
+  @include background(image-url("bg.jpg"))
+  padding-top: 100px
+
+  .uplay-logo
+    @include background(image-url("logotipo.png"))
+    background-repeat: no-repeat
+    height: 77px
+
+  .slogan
+    header
+      h1, h5
+        @include title-font
+      h1
+        color: $GreenA
+        font-style: normal
+        font-weight: bolder
+        letter-spacing: 1px
+        line-height: 50px
+
+    .laptop
+      @include background(image-url("portatil.png"))
+      background-repeat: no-repeat
+      background-position: center center
+      height: 347px
+
+#athletes
+  background-color: white
+  padding-top: 5em
+  padding-bottom: 5em
+  header
+    text-align: center
+    .athletes-icon
+      @include background(image-url("athletes_medal.png"))
+    .organizers-icon
+      @include background(image-url("organizers_icon.png"))
+    .athletes-icon, .organizers-icon
+      margin: 0 auto
+      background-repeat: no-repeat
+      background-position: center center
+      height: 133px
+      width: 133px
+      border: 2px solid $LightGray
+      border-radius: 50%
+    p
+      margin-bottom: 0
+      font-size: small
+      line-height: 1em
+    h3
+      @include title-font
+      padding-top: 1em
+      font-weight: bolder
+      line-height: 35px
+      letter-spacing: 1px
+
+#second-sign
+  background-color: $GreenB
+  color: white
+  padding-top: 5em
+  padding-bottom: 5em
+  > section:nth-child(1) div
+    @include title-font
+    font-size: x-large
+    font-weight: bolder
+
+body > footer
+  padding-top: 5em
+  padding-bottom: 5em
+  background: $Black
+  color: white
