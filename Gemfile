@@ -14,6 +14,11 @@ group :development do
   gem "better_errors"
   gem 'pry'
   gem 'pry-debugger'
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # Gems used only for assets and not required

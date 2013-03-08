@@ -91,6 +91,7 @@ GEM
       rack
     multi_json (1.6.1)
     multi_xml (0.5.1)
+    pg (0.14.1)
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -135,6 +136,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.7)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -162,10 +164,12 @@ DEPENDENCIES
   gibbon
   jquery-rails
   mixpanel
+  pg
   pry
   pry-debugger
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
+  sqlite3
   thin
   uglifier (>= 1.0.3)
   zurb-foundation (~> 4.0.0)
