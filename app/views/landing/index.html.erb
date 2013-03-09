@@ -10,8 +10,15 @@
       <h5>INTERNATIONAL UNIVERSITY SPORTS PLATFORM</h5>
       <form method="post" action="<%= landing_register_url %>">
         <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
-        <input type="submit" value="GET IN TOUCH!" />
+        <input class="in-submit" type="submit" value="GET IN TOUCH!" />
       </form>
+      <div class="in-submit hide">
+        <div class="check-icon">
+        </div>
+        <div>
+          Registration submited!
+        </div>
+      </div>
     </header>
     <div class="laptop small-8 columns">
     </div>
@@ -53,17 +60,31 @@
             <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
           </section>
           <section class="small-3 columns">
-            <input class="prefix" type="submit" value="SEND" />
+            <input class="second-submit" type="submit" value="SEND" />
           </section>
         </section>
       </form>
+      <div class="second-submit hide">
+        <div class="check-icon">
+        </div>
+        <div>
+          Registration submited!
+        </div>
+      </div>
     </section>
   </section>
 </div>
 
 <footer class="wrapper">
   <section class="row">
-    @2013, All rights reserved UPlayPro, Made in Braga
+    <section class="small-6 columns">
+      <div>
+        @2013, All rights reserved UPlayPro, Made in Braga
+      </div>
+    </section>
+    <section class="small-6 columns">
+      <%= image_tag 'facebook.png' %>
+      <%= image_tag 'twitter.png' %>
+    </section>
   </section>
 </footer>
-
