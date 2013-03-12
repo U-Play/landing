@@ -2,11 +2,13 @@
  *= require foundation_and_overrides
  *= require roboto
  *= require oswald
+ *= require helveticaneue
  *= require_self
  */
 
+
 $row-width: 57.5em !default
-$header-font-family: "Oswald", "Helvetica", Helvetica, Arial, sans-serif
+$header-font-family: 'PT Sans Narrow', sans-serif
 
 @import "compass"
 @import "foundation"
@@ -14,7 +16,7 @@ $header-font-family: "Oswald", "Helvetica", Helvetica, Arial, sans-serif
 
 
 @mixin title-font
-  font-family: 'Oswald', sans-serif
+  font-family: 'PT Sans Narrow', sans-serif
   letter-spacing: 1px
 
 
@@ -56,10 +58,11 @@ html, body
   .slogan
     header
       h1, h5
-        @include title-font
+        line-height: 1em
       h1
+        font-size: 52px
         color: $GreenA
-        font-style: normal
+        //font-style: normal
         font-weight: bolder
         // line-height: 50px
         padding-top: 0.5em
@@ -73,18 +76,19 @@ html, body
       height: 347px
 
   input[type="email"]
-    line-height: 2em
-    -moz-box-sizing: content-box
-    -webkit-box-sizing: content-box
-    box-sizing: content-box
-    text-align: center
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+    line-height: 2.3em
+    height: 2.7em
+    padding-left: 1em
     font-size: small
-    @include single-box-shadow(rgba($LightGray, 0.7), 0px, 3px, 2px, -1px)
     border-radius: 3px
-    padding: 0.5em 0 0.5em 0
     border: 0
+    @include single-box-shadow(rgba($LightGray, 0.7), 0px, 3px, 2px, -1px)
 
   input[type="submit"]
+    font-weight: bold
     width: 100%
     @include title-font
     font-size: x-large
@@ -157,7 +161,7 @@ html, body
       text-align: center
       font-size: small
       border-radius: 3px
-      margin-top: 2px
+      margin-top: 1px
 
     input[type="submit"]
       margin-bottom: 15px
@@ -165,7 +169,8 @@ html, body
       width: 70%
       @include title-font
       font-size: large
-      line-height: 39px
+      // line-height: 39px
+      padding: 8px 3px
       color: $BText
       @include background(linear-gradient(top, $BLight, $BDark))
       border: 0
