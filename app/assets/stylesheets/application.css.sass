@@ -1,14 +1,13 @@
 /*
  *= require foundation_and_overrides
  *= require roboto
- *= require oswald
- *= require helveticaneue
  *= require_self
  */
 
 
 $row-width: 57.5em !default
 $header-font-family: 'PT Sans Narrow', sans-serif
+$body-font-family: "Roboto", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif
 
 @import "compass"
 @import "foundation"
@@ -19,9 +18,11 @@ $header-font-family: 'PT Sans Narrow', sans-serif
   font-family: 'PT Sans Narrow', sans-serif
   letter-spacing: 1px
 
+@mixin border($border: 0, $radius: 0)
+  border: $border
+  border-radius: $radius
 
 html, body
-  font-family: "Roboto", "Helvetica", Helvetica, Arial, sans-serif
   padding-top: 4px
   background-color: $GreenB
 
@@ -34,26 +35,14 @@ html, body
   background-repeat: no-repeat
   background-position: center top
   background-attachment:fixed
+
   padding-top: 100px
   padding-bottom: 150px
 
-  .in-submit
-    .check-icon
-      @include background(image-url("check.png"))
-      background-repeat: no-repeat
-      background-position: center center
-      height: 51px
-      width: 100%
-      margin: 1.2em 0 0.5em 0
-    div
-      text-align: center
-      color: #808080
-
   .uplay-logo
     @include background(image-url("logotipo.png"))
-    background-repeat: no-repeat
-    background-attachment:fixed
     height: 77px
+    background-repeat: no-repeat
 
   .slogan
     header
@@ -62,12 +51,10 @@ html, body
       h1
         font-size: 52px
         color: $GreenA
-        //font-style: normal
         font-weight: bolder
-        // line-height: 50px
         padding-top: 0.5em
       h5
-        font-weight: 400
+        font-weight: normal
 
     .laptop
       @include background(image-url("portatil.png"))
@@ -75,30 +62,40 @@ html, body
       background-position: right center
       height: 347px
 
-  input[type="email"]
-    -moz-box-sizing: border-box
-    -webkit-box-sizing: border-box
-    box-sizing: border-box
-    line-height: 2.3em
-    height: 2.7em
-    padding-left: 1em
-    font-size: small
-    border-radius: 3px
-    border: 0
-    @include single-box-shadow(rgba($LightGray, 0.7), 0px, 3px, 2px, -1px)
+  .main-submit
+    margin-top: 1.2em
+    height: 100px
 
-  input[type="submit"]
-    font-weight: bold
-    width: 100%
-    @include title-font
-    font-size: x-large
-    color: white
-    @include background(linear-gradient(top, $LightGreen, $DarkGreen))
-    border: 0
-    border-radius: 2px
-    @include single-text-shadow(rgba($LightGray, 0.6), 0px, 2px, 1px, 0px)
-    -webkit-box-shadow: inset 0px -1px 1px 1px rgba($Black, 0.2)
-    box-shadow: inset 0px -1px 1px 1px rgba($Black, 0.2)
+    .success-message
+      .check-icon
+        @include background(image-url("check.png"))
+        background-repeat: no-repeat
+        background-position: center center
+        height: 51px
+        width: 100%
+        margin: 0 0 0.5em 0
+      div
+        text-align: center
+        color: #808080
+
+    input[type="email"]
+      @include single-box-shadow(rgba($LightGray, 0.7), 0px, 3px, 2px, -1px)
+      @include border(0, 3px)
+      -moz-box-sizing: border-box
+      -webkit-box-sizing: border-box
+      box-sizing: border-box
+      height: 2.7em
+      padding-left: 1em
+
+    input[type="submit"]
+      @include border(0, 2px)
+      @include title-font
+      font-size: x-large
+      font-weight: bold
+      color: white
+      width: 100%
+      @include background(linear-gradient(top, $LightGreen, $DarkGreen))
+      @include box-shadow(rgba($Black, 0.2) 0px -1px 1px 1px inset)
 
 #athletes
   background-color: white
@@ -121,7 +118,7 @@ html, body
     p
       margin-bottom: 0
       font-size: small
-      line-height: 1em
+      line-height: 1.5em
     h3
       @include title-font
       padding-top: 1em
@@ -132,57 +129,64 @@ html, body
   background-color: $GreenA
   color: white
   padding-top: 5em
-  padding-bottom: 5em
-  > section
-    text-align: center
-  > section:nth-child(1) div
+  padding-bottom: 4em
+  line-height: 2em
+
+  .row > section
+    padding: 0 15px 0 15px
+    line-height: 50px
+    height: 50px
+
+  .row > section:nth-child(1)
+    float: left
+    width: 50%
+    margin: 0
     @include title-font
     font-size: x-large
     font-weight: bolder
-    line-height: 2em
+    vertical-align: middle
 
-  .second-submit
-    .check-icon
-      @include background(image-url("checkW.png"))
-      background-repeat: no-repeat
-      background-position: center center
-      height: 51px
-      width: 51px
-      float: right
-    div
+  .row > section:nth-child(2)
+    float: right
+    width: 50%
+    display: table
+    .success-message
       color: white
+      font-weight: normal
+      font-size: normal
+      text-align: right
+    .form-wrap
+      display: table-cell
+      vertical-align: middle
+      form
+        margin: 0
+        input
+          margin: 0
+        input[type="email"]
+          width: 77%
+          float: left
+          font-size: small
+          height: 2.7em
+          padding-left: 1em
+          @include border(0, 3px)
+        input[type="submit"]
+          width: 19%
+          border: 0
+          float: right
+          @include title-font
+          font-size: large
+          padding: 6px 3px 6px 3px
+          color: $BText
+          @include background(linear-gradient(top, $BLight, $BDark))
+          @include border(0, 2px)
+          @include single-text-shadow(rgba($LightGray, 0.6), 0px, 2px, 1px, 0px)
+          @include box-shadow(rgba($LightGray, 0.5) 0px -1px 1px 1px inset)
 
-  form
-    input
-      -moz-box-sizing: content-box
-      -webkit-box-sizing: content-box
-      box-sizing: content-box
-    input[type="email"]
-      text-align: center
-      font-size: small
-      border-radius: 3px
-      margin-top: 1px
-
-    input[type="submit"]
-      margin-bottom: 15px
-      margin-left: 1.5em
-      width: 70%
-      @include title-font
-      font-size: large
-      // line-height: 39px
-      padding: 8px 3px
-      color: $BText
-      @include background(linear-gradient(top, $BLight, $BDark))
-      border: 0
-      border-radius: 2px
-      @include single-text-shadow(rgba($LightGray, 0.6), 0px, 2px, 1px, 0px)
-      -webkit-box-shadow: inset 0px -1px 1px 1px rgba($LightGray, 0.5)
-      box-shadow: inset 0px -1px 1px 1px rgba($LightGray, 0.5)
 
 body > footer
   > section:nth-child(1) div
     line-height: 3em
-    vertical-align: center
+    vertical-align: middle
   img
     float: right
     margin-left: 2em

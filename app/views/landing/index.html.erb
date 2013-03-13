@@ -1,3 +1,11 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        mixpanel.track("Landing page render");
+    });
+  </script>
+<% end %>
+
 <div id="in-touch" class="wrapper">
   <section class="row">
     <div class="small-12 columns">
@@ -8,17 +16,24 @@
     <header class="small-4 columns">
       <h1>TAKE YOUR COMPETITION FURTHER</h1>
       <h5>INTERNATIONAL UNIVERSITY <br />SPORTS PLATFORM</h5>
-      <form method="post" action="<%= landing_register_url %>">
-        <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
-        <input class="in-submit" type="submit" value="GET IN TOUCH!" />
-      </form>
-      <div class="in-submit hide">
-        <div class="check-icon">
-        </div>
-        <div>
-          Registration submited!
-        </div>
+
+      <div class="main-submit">
+        <form method="post" action="<%= landing_register_url %>">
+          <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
+          <input class="in-submit" type="submit" value="GET IN TOUCH!" />
+        </form>
+        <section class="success-message hide">
+          <div class="check-icon">
+          </div>
+          <div>
+            Registration submited!
+          </div>
+        </section>
+        <section class="error-message hide">
+          <div>Your email is invalid!</div>
+        </section>
       </div>
+
     </header>
     <div class="laptop small-8 columns">
     </div>
@@ -50,27 +65,28 @@
 
 <div id="second-sign" class="wrapper">
   <section class="row">
-    <section class="small-6 columns">
+    <section>
       <div>SIGN UP TO GET MORE INFO</div>
     </section>
-    <section class="small-6 columns">
-      <form method="post" action="<%= landing_register_url %>">
-        <section class="row collapse">
-          <section class="small-9 columns">
+    <section class="second-submit">
+      <div class="form-wrap">
+        <form method="post" action="<%= landing_register_url %>">
+          <section>
             <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
           </section>
-          <section class="small-3 columns">
+          <section>
             <input class="second-submit" type="submit" value="SEND" />
           </section>
-        </section>
-      </form>
-      <div class="second-submit hide">
-        <div class="check-icon">
-        </div>
+        </form>
+      </div>
+      <section class="success-message hide">
         <div>
           Registration submited!
         </div>
-      </div>
+      </section>
+      <section class="error-message hide">
+        <div>Your email is invalid!</div>
+      </section>
     </section>
   </section>
 </div>
