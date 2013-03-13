@@ -17,9 +17,10 @@ $(document).ready(function() {
 
 	function mixpanel_register(email) {
 		if(isValidEmailAddress(email)) {
+			mixpanel.track('new registration');
 			mixpanel.identify(email);
 	    	mixpanel.people.set({
-	    		email: email
+	    		"Email": email
 	    	});
 	    	return true
 		}
@@ -35,7 +36,7 @@ $(document).ready(function() {
 			} else {
 				$('.main-submit').find('.error-message').fadeIn();
 			}
-		}, 700);
+		}, 500);
 		return false;
 	});
 
@@ -48,7 +49,7 @@ $(document).ready(function() {
 			} else {
 				$('.second-submit').find('.error-message').show().animate(200);
 			}
-		}, 700);
+		}, 500);
 		return false
 	});
 
