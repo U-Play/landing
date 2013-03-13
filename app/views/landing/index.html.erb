@@ -1,7 +1,7 @@
 <% content_for :javascript do %>
   <script type="text/javascript">
     $(document).ready(function() {
-        mixpanel.track("Landing page render");
+        mixpanel.track("rendered landing page");
     });
   </script>
 <% end %>
@@ -95,12 +95,12 @@
   <section class="row">
     <section class="small-6 columns">
       <div>
-        @2013, All rights reserved UPlayPro, Made in Braga
+        @2013, All rights reserved UPlayPro, Made in Minho
       </div>
     </section>
     <section class="small-6 columns">
-      <%= image_tag 'facebook.png' %>
-      <%= image_tag 'twitter.png' %>
+      <a class="facebook-link" href="#"><%= image_tag 'facebook.png' %></a>
+      <a class="twitter-link" href="#"><%= image_tag 'twitter.png' %></a>
     </section>
   </section>
 </footer>
