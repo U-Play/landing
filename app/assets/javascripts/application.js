@@ -27,33 +27,44 @@ $(document).ready(function() {
 		return false;
 	};
 
-	$('.main-submit input[type="submit"]').click(function() {
-		res = mixpanel_register($('.main-submit').find('input[type="email"]').val());
-		$('.main-submit').find('form').fadeOut();
+	function submit(container) {
+		res = mixpanel_register($(container).find('input[type="email"]').val());
+		$(container).find('form').fadeOut();
 		setTimeout(function() {
 			if(res) {
-				$('.main-submit').find('.success-message').fadeIn();
+				$(container).find('.success-message').fadeIn();
+				setTimeout(function() {
+					$(container).find('.success-message').fadeOut();
+					setTimeout(function() {
+						$(container).find('form').fadeIn();
+					}, 500);
+				}, 2000);
 			} else {
-				$('.main-submit').find('.error-message').fadeIn();
+				$(container).find('.error-message').fadeIn();
+				setTimeout(function() {
+					$(container).find('.error-message').fadeOut();
+					setTimeout(function() {
+						$(container).find('form').fadeIn();
+					}, 500);
+				}, 2000);
 			}
 		}, 500);
+		return false;
+	}
+
+	$('.main-submit input[type="submit"]').click(function() {
+		console.log("Clicked!");
+		submit('.main-submit');
 		return false;
 	});
 
 	$('.second-submit input[type="submit"]').click(function() {
-		res = mixpanel_register($('.second-submit').find('input[type="email"]').val());
-		$('.second-submit').find('form').fadeOut().animate(200);
-		setTimeout(function() {
-			if(res) {
-				$('.second-submit').find('.success-message').show().animate(200);
-			} else {
-				$('.second-submit').find('.error-message').show().animate(200);
-			}
-		}, 500);
-		return false
+		submit('.second-submit');
+		return false;
 	});
 
 	mixpanel.track_links('a.facebook-link', 'clicked facebook');
 	mixpanel.track_links('a.twitter-link', 'clicked twitter')
+	mixpanel.track_links('a.tumblr-link', 'clicked tumblr');
 
 });

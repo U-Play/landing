@@ -16,9 +16,8 @@
     <header class="small-4 columns">
       <h1>TAKE YOUR COMPETITION FURTHER</h1>
       <h5>INTERNATIONAL UNIVERSITY <br />SPORTS PLATFORM</h5>
-
       <div class="main-submit">
-        <form method="post" action="<%= landing_register_url %>">
+        <form method="post">
           <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
           <input class="in-submit" type="submit" value="GET IN TOUCH!" />
         </form>
@@ -70,7 +69,7 @@
     </section>
     <section class="second-submit">
       <div class="form-wrap">
-        <form method="post" action="<%= landing_register_url %>">
+        <form method="post">
           <section>
             <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
           </section>
@@ -95,12 +94,13 @@
   <section class="row">
     <section class="small-6 columns">
       <div>
-        @2013, All rights reserved UPlayPro, Made in Minho
+        @2013, All rights reserved U-PLAY, <a href="madeinminho.org">Made in Minho</a>
       </div>
     </section>
     <section class="small-6 columns">
-      <a class="facebook-link" href="#"><%= image_tag 'facebook.png' %></a>
-      <a class="twitter-link" href="#"><%= image_tag 'twitter.png' %></a>
+      <a class="facebook-link" href="https://www.facebook.com/uplaypro"><%= image_tag 'facebook.png' %></a>
+      <a class="twitter-link" href="https://twitter.com/uplaypro"><%= image_tag 'twitter.png' %></a>
+      <a class="tumblr-link" href="http://blog.uplaypro.com/" ><%= image_tag 'tumblr.png' %></a>
     </section>
   </section>
 </footer>
