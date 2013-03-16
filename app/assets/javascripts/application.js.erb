@@ -33,10 +33,11 @@ $(document).ready(function() {
 	};
 
 	function submit(container) {
-		res = mixpanel_register($(container).find('input[type="email"]').val());
+		email = $(container).find('input[type="email"]').val()
+		res = mixpanel_register(email);
 		$(container).find('form').fadeOut();
 		setTimeout(function() {
-			if(res) {
+			if(isValidEmailAddress(email)) {
 				$(container).find('.success-message').fadeIn();
 				setTimeout(function() {
 					$(container).find('.success-message').fadeOut();
