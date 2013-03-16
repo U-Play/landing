@@ -17,12 +17,17 @@ $(document).ready(function() {
 
 	function mixpanel_register(email) {
 		if(isValidEmailAddress(email)) {
-			mixpanel.track('new registration');
-			mixpanel.identify(email);
-	    	mixpanel.people.set({
-	    		"Email": email
-	    	});
-	    	return true
+			// database register
+			$.post("<%= Rails.application.routes.url_helpers.landing_register_path %>", {"email": email}, function(data) {
+				console.log(data);
+			});
+			// mixpanel register
+			// mixpanel.track('new registration');
+			// mixpanel.identify(email);
+	  //   	mixpanel.people.set({
+	  //   		"Email": email
+	  //   	});
+	  //   	return true
 		}
 		return false;
 	};
@@ -53,7 +58,6 @@ $(document).ready(function() {
 	}
 
 	$('.main-submit input[type="submit"]').click(function() {
-		console.log("Clicked!");
 		submit('.main-submit');
 		return false;
 	});
