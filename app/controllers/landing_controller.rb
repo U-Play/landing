@@ -6,7 +6,7 @@ class LandingController < ::ApplicationController
   	@user = User.new(email: params[:email])
   	if @user.save
   		render json: @user, status: :created
-  		UserMailer.welcome_email(@user).deliver
+  		UserMailer.welcome_email(@user, request.host).deliver
   	else
   		render json: @user.errors, status: :unprocessable_entity
   	end
