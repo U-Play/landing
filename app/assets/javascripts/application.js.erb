@@ -22,12 +22,12 @@ $(document).ready(function() {
 				console.log(data);
 			});
 			// mixpanel register
-			// mixpanel.track('new registration');
-			// mixpanel.identify(email);
-	  //   	mixpanel.people.set({
-	  //   		"Email": email
-	  //   	});
-	  //   	return true
+			mixpanel.track('new registration');
+			mixpanel.identify(email);
+	    	mixpanel.people.set({
+	    		"Email": email
+	    	});
+	    	return true
 		}
 		return false;
 	};
