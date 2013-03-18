@@ -9,6 +9,7 @@ gem 'rails', '3.2.11'
 gem 'mixpanel'
 gem 'gibbon'
 gem 'thin'
+gem 'mail'
 
 group :development do
   gem "better_errors"
