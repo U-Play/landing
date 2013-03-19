@@ -33,7 +33,7 @@ $(document).ready(function() {
 	};
 
 	function submit(container) {
-		email = $(container).find('input[type="email"]').val()
+		email = $(container).find('input[type="email"]').val();
 		res = mixpanel_register(email);
 		$(container).find('form').fadeOut();
 		setTimeout(function() {
@@ -42,6 +42,7 @@ $(document).ready(function() {
 				setTimeout(function() {
 					$(container).find('.success-message').fadeOut();
 					setTimeout(function() {
+						$(container).find('input[type="email"]').val('');
 						$(container).find('form').fadeIn();
 					}, 500);
 				}, 2000);
@@ -50,6 +51,7 @@ $(document).ready(function() {
 				setTimeout(function() {
 					$(container).find('.error-message').fadeOut();
 					setTimeout(function() {
+						$(container).find('input[type="email"]').val('');
 						$(container).find('form').fadeIn();
 					}, 500);
 				}, 2000);
