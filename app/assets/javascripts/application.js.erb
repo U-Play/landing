@@ -22,7 +22,7 @@ $(document).ready(function() {
 				console.log(data);
 			});
 			// mixpanel register
-			mixpanel.track('new registration', "source": source);
+			mixpanel.track('new registration', {"source": source});
 			mixpanel.identify(email);
 	    	mixpanel.people.set({
 	    		"Email": email
