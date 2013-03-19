@@ -8,4 +8,4 @@ f="mixpanel";g.people=g.people||[];h=['disable','track','track_pageview','track_
 'track_forms','register','register_once','unregister','identify','alias','name_tag',
 'set_config','people.set','people.increment','people.track_charge','people.append'];
 for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.2;})(document,window.mixpanel||[]);
-mixpanel.init("a629f5a7e61c61941201e842711dba7f");
+mixpanel.init("16e2ee0483fd203f845812afef29fa84");
