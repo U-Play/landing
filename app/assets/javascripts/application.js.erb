@@ -15,14 +15,14 @@ $(document).ready(function() {
     	return pattern.test(emailAddress);
 	};
 
-	function mixpanel_register(email) {
+	function mixpanel_register(email, source) {
 		if(isValidEmailAddress(email)) {
 			// database register
 			$.post("<%= Rails.application.routes.url_helpers.landing_register_path %>", {"email": email}, function(data) {
 				console.log(data);
 			});
 			// mixpanel register
-			mixpanel.track('new registration');
+			mixpanel.track('new registration', "source": source);
 			mixpanel.identify(email);
 	    	mixpanel.people.set({
 	    		"Email": email
@@ -32,9 +32,9 @@ $(document).ready(function() {
 		return false;
 	};
 
-	function submit(container) {
+	function submit(container, source) {
 		email = $(container).find('input[type="email"]').val();
-		res = mixpanel_register(email);
+		res = mixpanel_register(email, source);
 		$(container).find('form').fadeOut();
 		setTimeout(function() {
 			if(isValidEmailAddress(email)) {
@@ -61,17 +61,18 @@ $(document).ready(function() {
 	}
 
 	$('.main-submit input[type="submit"]').click(function() {
-		submit('.main-submit');
+		submit('.main-submit', "first call");
 		return false;
 	});
 
 	$('.second-submit input[type="submit"]').click(function() {
-		submit('.second-submit');
+		submit('.second-submit', "second call");
 		return false;
 	});
 
 	mixpanel.track_links('a.facebook-link', 'clicked facebook');
 	mixpanel.track_links('a.twitter-link', 'clicked twitter')
 	mixpanel.track_links('a.tumblr-link', 'clicked tumblr');
+	mixpanel.track_links('a.minho', 'clicked made in minho');
 
 });
