@@ -6,16 +6,18 @@
 
 
 $row-width: 57.5em !default
-$header-font-family: 'PT Sans Narrow', sans-serif
+$header-font-family: 'pt_sans_narrowregular', sans-serif
 $body-font-family: "Roboto", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif
+$header-text-rendering: auto
 
 @import "compass"
 @import "foundation"
 @import "partials/colors"
 
 
+
 @mixin title-font
-  font-family: 'PT Sans Narrow', sans-serif
+  font-family: 'pt_sans_narrowregular', sans-serif
   letter-spacing: 1px
 
 @mixin border($border: 0, $radius: 0)
@@ -25,6 +27,10 @@ $body-font-family: "Roboto", "Helvetica Neue", "Helvetica", Helvetica, Arial, sa
 html, body
   padding-top: 4px
   background-color: $GreenB
+
+h1, h2, h3, h4, h5, h6
+  text-rendering: auto !important
+
 
 .wrapper
   width: 100%

@@ -77,7 +77,7 @@
 // $header-line-height: 1.4;
 // $header-top-margin: .2em;
 // $header-bottom-margin: .5em;
-// $header-text-rendering: optimizeLegibility;
+$header-text-rendering: auto !important;
 
 // We use these to control header font sizes
 // $h1-font-size: emCalc(44px);
