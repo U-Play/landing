@@ -212,9 +212,13 @@ body > footer
   color: white
 
 
+@media only screen and (max-width: 600px)
+  #in-touch .slogan .laptop
+    @include background-size(100%, auto)
 @media only screen and (max-width: 768px)
   #in-touch .slogan .laptop
     background-position: center center
+
   #athletes .row section:first-child
     margin-bottom: 2em
   #in-touch
