@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6
   position: fixed
   top: 0
   width: 100%
+  z-index: 2
 
 #in-touch
   @include background(image-url("bg.jpg"))
@@ -70,6 +71,7 @@ h1, h2, h3, h4, h5, h6
 
     .laptop
       @include background(image-url("portatil.png"))
+      @include background-size(auto, 100%)
       background-repeat: no-repeat
       background-position: right center
       height: 347px
@@ -208,3 +210,14 @@ body > footer
   padding-bottom: 5em
   background: $BackgroundBlack
   color: white
+
+
+@media only screen and (max-width: 768px)
+  #in-touch .slogan .laptop
+    background-position: center center
+  #athletes .row section:first-child
+    margin-bottom: 2em
+  #in-touch
+    padding-bottom: 50px
+  #second-sign .row > section
+    width: 100% !important
