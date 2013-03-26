@@ -25,8 +25,7 @@ $header-text-rendering: auto
   border-radius: $radius
 
 html, body
-  padding-top: 4px
-  background-color: $GreenB
+  background-color: $BGColor
 
 h1, h2, h3, h4, h5, h6
   text-rendering: auto !important
@@ -35,6 +34,13 @@ h1, h2, h3, h4, h5, h6
 .wrapper
   width: 100%
 
+
+#top-border
+  background-color: $GreenA
+  height: 4px
+  position: fixed
+  top: 0
+  width: 100%
 
 #in-touch
   @include background(image-url("bg.jpg"))
