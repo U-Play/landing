@@ -28,5 +28,16 @@ if Rails.env.production?
 	accounts = YAML::load(File.open('/home/deploy/config/accounts.yml')).to_hash
 	SMTP_PASSWORD = accounts['gmail']['password']
 end
+
+ActionMailer::Base.delivery_method = :sendmail
+ActionMailer::Base.smtp_settings = {
+	address: 'smtp.gmail.com',
+	port: 587,
+	domain: 'uplaypro.com',
+	authentication: 'login',
+	user_name: 'catch@uplaypro.com',
+	password: SMTP_PASSWORD,
+	enable_starttls_auto: true
+}
 # Mail.register_interceptor(DevelopmentMailInterceptor)
 # Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
