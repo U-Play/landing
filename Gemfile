@@ -16,6 +16,8 @@ group :development do
   gem 'pry'
   gem 'pry-debugger'
   gem 'sqlite3'
+  gem 'capistrano'
+  gem 'rvm-capistrano'
 end
 
 group :production do
