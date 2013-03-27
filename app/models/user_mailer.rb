@@ -3,6 +3,6 @@ class UserMailer < ActionMailer::Base
 
 	def welcome_email(user, host)
 		@host = host
-		mail(to: user.email, subject: 'Welcome to U-PLAY')
+		mail(from: 'hello@uplaypro.com', to: user.email, subject: 'Welcome to U-PLAY')
 	end
 end
