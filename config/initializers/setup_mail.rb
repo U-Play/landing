@@ -13,7 +13,7 @@ ActionMailer::Base.smtp_settings = {
 	port: 587,
 	domain: 'uplaypro.com',
 	authentication: 'login',
-	user_name: 'catch@uplaypro.com',
+	user_name: 'hello@uplaypro.com',
 	password: password,
 	enable_starttls_auto: true
 }
