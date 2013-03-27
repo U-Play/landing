@@ -1,16 +1,16 @@
-ActionMailer::Base.delivery_method = :sendmail
-ActionMailer::Base.perform_deliveries = true
+# ActionMailer::Base.delivery_method = :sendmail
+# ActionMailer::Base.perform_deliveries = true
 # ActionMailer::Base.raise_delivery_errors = true
-ActionMailer::Base.delivery_method = :smtp
-ActionMailer::Base.smtp_settings = {
-	address: 'smtp.gmail.com',
-	port: 587,
-	domain: 'uplaypro.com',
-	authentication: 'login',
-	user_name: 'catch@uplaypro.com',
-	password: ENV['SMTP_PASSWORD'],
-	enable_starttls_auto: true
-}
+# ActionMailer::Base.delivery_method = :smtp
+# ActionMailer::Base.smtp_settings = {
+# 	address: 'smtp.gmail.com',
+# 	port: 587,
+# 	domain: 'uplaypro.com',
+# 	authentication: 'login',
+# 	user_name: 'catch@uplaypro.com',
+# 	password: ENV['SMTP_PASSWORD'],
+# 	enable_starttls_auto: true
+# }
 # ActionMailer::Base.smtp_settings = {
 #   :address              => "prt22.wl-dns.com",
 #   :port                 => 465,
@@ -23,5 +23,7 @@ ActionMailer::Base.smtp_settings = {
 # }
 
 ActionMailer::Base.default_url_options[:host] = "uplaypro.com"
+SMTP_PASSWORD=''
+SMTP_PASSWORD=YAML.load(File.open('~/config/accounts.yml'))[:gmail][:password] if Rails.env.production?
 # Mail.register_interceptor(DevelopmentMailInterceptor)
 # Mail.register_interceptor(DevelopmentMailInterceptor) if Rails.env.development?
