@@ -58,7 +58,7 @@ Uplaypro::Application.configure do
     domain: 'uplaypro.com',
     authentication: 'login',
     user_name: 'catch@uplaypro.com',
-    password: ENV['SMTP_PASSWORD'],
+    password: SMTP_PASSWORD,
     enable_starttls_auto: true
   }
 
