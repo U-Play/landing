@@ -25,7 +25,7 @@
 ActionMailer::Base.default_url_options[:host] = "uplaypro.com"
 SMTP_PASSWORD=''
 if Rails.env.production?
-	file = YAML.load_file('/home/deploy/config/accounts.yml')
+	file = YAML::load(File.open('/home/deploy/config/accounts.yml')).to_hash
 	SMTP_PASSWORD = file[:gmail][:password]
 end
 # Mail.register_interceptor(DevelopmentMailInterceptor)
