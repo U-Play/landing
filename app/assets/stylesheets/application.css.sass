@@ -108,8 +108,11 @@ h1, h2, h3, h4, h5, h6
       font-weight: bold
       color: white
       width: 100%
+      background-color: $DarkGreen
       @include background(linear-gradient(top, $LightGreen, $DarkGreen))
       @include box-shadow(rgba($Black, 0.2) 0px -1px 1px 1px inset)
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$LightGreen', endColorstr='$DarkGreen')
+      zoom: 1
 
 #athletes
   background-color: white
