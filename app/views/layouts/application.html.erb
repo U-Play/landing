@@ -6,6 +6,9 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
+	<meta property="og:image" content="http://<%= @host %><%= image_path 'logo_green_square.png' %>" />
+	<meta property="og:title" content="[U-PLAY • International University Sports Platform]" />
+	<meta property="og:description" content="[Take your competition further]" />
 	<%= favicon_link_tag "/favicon.png" %>
 	<title><%= content_for?(:title) ? yield(:title) : "U-PLAY" %></title>
 	<!-- Uncomment to make IE8 render like IE7 -->
