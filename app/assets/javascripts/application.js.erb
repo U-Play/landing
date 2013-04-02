@@ -24,7 +24,7 @@ $(document).ready(function() {
 			// mixpanel register
 			mixpanel.identify(email);
 	    	mixpanel.people.set({
-	    		"Email": email
+	    		$email: email
 	    	});
 	    	mixpanel.track('new registration', {"source": source});
 	    	return true
