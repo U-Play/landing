@@ -6,9 +6,16 @@
 <!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8" />
-	<meta property="og:image" content="http://<%= @host %><%= image_path 'logo_green_square.png' %>" />
-	<meta property="og:title" content="[U-PLAY • International University Sports Platform]" />
-	<meta property="og:description" content="[Take your competition further]" />
+	<meta content='161004527385612' property='fb:page_id'>
+	<link href='http://<%= @host %><%= image_path 'logo_green_square.png' %>' rel='apple-touch-icon-precomposed'>
+	<meta property="og:image" content="='http://<%= @host %><%= image_path 'logo_green_square.png' %>" />
+	<link data-page-subject="true" href="http://uplaypro.com/" rel="canonical" />
+	<meta content="http://uplaypro.com/" data-page-subject="true" property="og:url" />
+	<meta content="U-PLAY • International University Sports Platform" data-page-subject="true" property="og:title" />
+	<meta content="website" data-page-subject="true" property="og:type" />
+	<meta content="U-PLAY • International University Sports Platform" data-page-subject="true" property="og:site_name" />
+	<meta content="Take your competition further" data-page-subject="true" name="description" />
+	<meta content="University Sports, Sports, University, Athlete Network, Competition, Planning, Tools" data-page-subject="true" name="keywords" />
 	<%= favicon_link_tag "/favicon.png" %>
 	<title><%= content_for?(:title) ? yield(:title) : "U-PLAY" %></title>
 	<!-- Uncomment to make IE8 render like IE7 -->
@@ -25,21 +32,21 @@
 
 	<%= yield :javascript %>
 
-  	<%= csrf_meta_tags %>
+	<%= csrf_meta_tags %>
 </head>
 <body>
-  	<%= yield %>
+	<%= yield %>
 
-  	<script type="text/javascript">
-  		var _gaq = _gaq || [];
-  		_gaq.push(['_setAccount', 'UA-39258185-1']);
-  		_gaq.push(['_setDomainName', 'uplaypro.com']);
-  		_gaq.push(['_trackPageview']);
-  		(function() {
-    		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  		})();
+	<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-39258185-1']);
+	_gaq.push(['_setDomainName', 'uplaypro.com']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
 	</script>
 </body>
 </html>
