@@ -1,7 +1,24 @@
 <% content_for :javascript do %>
   <script type="text/javascript">
     $(document).ready(function() {
-        mixpanel.track("rendered landing page");
+      mixpanel.track("rendered landing page");
+      var video_play = false;
+      $('iframe').iframeTracker({
+        blurCallback: function(){
+          if(video_play == false) {
+            console.log("video");
+            mixpanel.track("video");
+            video_play = true
+          }
+        },
+        overCallback: function(element){
+          this._overId = $(element).parents('.iframe_wrap').attr('id'); // Saving the iframe wrapper id
+        },
+        outCallback: function(element){
+          this._overId = null; // Reset hover iframe wrapper id
+        },
+        _overId: null
+      });
     });
   </script>
 <% end %>
@@ -11,99 +28,100 @@
 
 <div id="in-touch" class="wrapper">
   <section class="row">
-    <div class="large-12 columns">
-      <div class="uplay-logo"></div>
-    </div>
+  <div class="large-12 columns">
+    <div class="uplay-logo"></div>
+  </div>
   </section>
   <section class="slogan row">
-    <header class="large-4 columns">
-      <h1>TAKE YOUR <br /> COMPETITION FURTHER</h1>
-      <h5>INTERNATIONAL UNIVERSITY <br />SPORTS PLATFORM</h5>
-      <div class="main-submit">
-        <form>
-          <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
-          <input class="in-submit" type="submit" value="GET IN TOUCH!" />
-        </form>
-        <section class="success-message hide">
-          <div class="check-icon">
-          </div>
-          <div>
-            Registration submited!
-          </div>
-        </section>
-        <section class="error-message hide">
-          <div>Your email is invalid!</div>
-        </section>
-      </div>
-
-    </header>
-    <div class="laptop large-8 columns">
+  <header class="large-4 columns">
+  <h1>TAKE YOUR <br /> COMPETITION FURTHER</h1>
+  <h5>INTERNATIONAL UNIVERSITY <br />SPORTS PLATFORM</h5>
+  <div class="main-submit">
+    <form>
+      <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
+      <input class="in-submit" type="submit" value="GET IN TOUCH!" />
+    </form>
+    <section class="success-message hide">
+    <div class="check-icon">
     </div>
+    <div>
+      Registration submited!
+    </div>
+    </section>
+    <section class="error-message hide">
+    <div>Your email is invalid!</div>
+    </section>
+  </div>
+
+  </header>
+  <div class="laptop large-8 columns">
+    <iframe id="iframe" width="500" height="281" src="http://www.youtube.com/embed/1AWx9ddvysM?rel=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
   </section>
 </div>
 
 <div id="athletes" class="wrapper">
   <div class="row">
     <section class="large-6 columns">
-      <header>
-        <div class="athletes-icon"></div>
-        <h3>ATHLETES</h3>
-        <p>Exhibit your profile</p>
-        <p>Share your achievements</p>
-        <p>Connect with other athletes</p>
-      </header>
+    <header>
+    <div class="athletes-icon"></div>
+    <h3>ATHLETES</h3>
+    <p>Exhibit your profile</p>
+    <p>Share your achievements</p>
+    <p>Connect with other athletes</p>
+    </header>
     </section>
     <section class="large-6 columns">
-      <header>
-        <div class="organizers-icon"></div>
-        <h3>ORGANIZERS</h3>
-        <p>Engage the athletes</p>
-        <p>Share the highlights</p>
-        <p>Manage your tournaments</p>
-      </header>
+    <header>
+    <div class="organizers-icon"></div>
+    <h3>ORGANIZERS</h3>
+    <p>Engage the athletes</p>
+    <p>Share the highlights</p>
+    <p>Manage your tournaments</p>
+    </header>
     </section>
   </div>
 </div>
 
 <div id="second-sign" class="wrapper">
   <section class="row">
-    <section>
-      <div>SIGN UP TO GET MORE INFO</div>
-    </section>
-    <section class="second-submit">
-      <div class="form-wrap">
-        <form>
-          <section>
-            <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
-          </section>
-          <section>
-            <input class="second-submit" type="submit" value="SEND" />
-          </section>
-        </form>
-      </div>
-      <section class="success-message hide">
-        <div>
-          Registration submited!
-        </div>
+  <section>
+  <div>SIGN UP TO GET MORE INFO</div>
+  </section>
+  <section class="second-submit">
+  <div class="form-wrap">
+    <form>
+      <section>
+      <input type="email" name="useremail" placeholder="enter your e-mail, we'll update you" />
       </section>
-      <section class="error-message hide">
-        <div>Your email is invalid!</div>
+      <section>
+      <input class="second-submit" type="submit" value="SEND" />
       </section>
-    </section>
+    </form>
+  </div>
+  <section class="success-message hide">
+  <div>
+    Registration submited!
+  </div>
+  </section>
+  <section class="error-message hide">
+  <div>Your email is invalid!</div>
+  </section>
+  </section>
   </section>
 </div>
 
 <footer class="wrapper">
-  <section class="row">
-    <section class="large-7 columns">
-      <div>
-        Copyright © 2013, All rights reserved U-PLAY, <a class="minho" target="_blank" href="http://madeinminho.org">Made in Minho</a>
-      </div>
-    </section>
-    <section class="large-5 columns">
-      <a target="_blank" class="facebook-link" href="https://www.facebook.com/uplaypro"><%= image_tag 'facebook.png' %></a>
-      <a target="_blank" class="twitter-link" href="https://twitter.com/uplaypro"><%= image_tag 'twitter.png' %></a>
-      <a target="_blank" class="tumblr-link" href="http://blog.uplaypro.com/" ><%= image_tag 'tumblr.png' %></a>
-    </section>
-  </section>
+<section class="row">
+<section class="large-7 columns">
+<div>
+  Copyright © 2013, All rights reserved U-PLAY, <a class="minho" target="_blank" href="http://madeinminho.org">Made in Minho</a>
+</div>
+</section>
+<section class="large-5 columns">
+<a target="_blank" class="facebook-link" href="https://www.facebook.com/uplaypro"><%= image_tag 'facebook.png' %></a>
+<a target="_blank" class="twitter-link" href="https://twitter.com/uplaypro"><%= image_tag 'twitter.png' %></a>
+<a target="_blank" class="tumblr-link" href="http://blog.uplaypro.com/" ><%= image_tag 'tumblr.png' %></a>
+</section>
+</section>
 </footer>
