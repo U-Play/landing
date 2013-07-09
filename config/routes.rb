@@ -5,6 +5,8 @@ Uplaypro::Application.routes.draw do
     match '/register' => 'landing#register', via: :post
   end
 
+  get '/newsletter' => 'newsletter#show'
+
   root to: 'landing#index'
 
 end
